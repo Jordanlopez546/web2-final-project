@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const routes = require("./src/routes/index.routes")
 
 require("dotenv").config();
 
@@ -11,9 +12,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/", (req, res) => {
-  res.send("Welcome to the Student Portal app")
-})
+app.use("/api", routes);
 
 const startServer = async () => {
   try {
