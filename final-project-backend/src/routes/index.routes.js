@@ -1,5 +1,5 @@
 const express = require('express');
-const { authMiddleware, studentMiddleware, adminMiddleware } = require("../middleware/auth.middleware")
+const { authMiddleware, adminMiddleware } = require("../middleware/auth.middleware")
 
 const authRoutes = require("./auth.routes");
 const courseRoutes = require("./course.routes");

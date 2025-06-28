@@ -1,5 +1,5 @@
-const Student = require('../models/Student');
-const Course = require('../models/Course');
+const Student = require('../models/Student.model');
+const Course = require('../models/Course.model');
 
 const sanitizeStudent = (student) => {
   return {

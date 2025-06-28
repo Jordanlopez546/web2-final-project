@@ -1,5 +1,4 @@
-const express = require('express');
-const Course = require('../models/Course');
+const Course = require('../models/Course.model');
 
 const getAllCourses = async (req, res) => {
   try {

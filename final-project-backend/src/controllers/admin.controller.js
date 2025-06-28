@@ -1,6 +1,6 @@
-const Admin = require('../models/Admin');
-const Student = require('../models/Student');
-const Course = require('../models/Course');
+const Admin = require('../models/Admin.model');
+const Student = require('../models/Student.model');
+const Course = require('../models/Course.model');
 
 const sanitizeAdmin = (admin) => {
   return {

@@ -1,5 +1,4 @@
 const express = require('express');
-const gradeController = require('../controllers/grade.controller');
 const {
   getAllGrades,
   getGrade,
@@ -10,7 +9,7 @@ const {
   getMyGrades,
   getGradesByCourse,
   bulkCreateGrades
-} = gradeController;
+} = require('../controllers/grade.controller');
 
 const { adminMiddleware, studentMiddleware } = require('../middleware/auth.middleware');
 

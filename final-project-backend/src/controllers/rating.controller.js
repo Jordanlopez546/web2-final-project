@@ -1,6 +1,6 @@
-const CourseRating = require('../models/CourseRating');
-const Course = require('../models/Course');
-const Student = require('../models/Student');
+const CourseRating = require('../models/CourseRating.model');
+const Course = require('../models/Course.model');
+const Student = require('../models/Student.model');
 
 const sanitizeRating = (rating) => {
   return {

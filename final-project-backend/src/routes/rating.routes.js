@@ -1,5 +1,4 @@
 const express = require('express');
-const ratingController = require('../controllers/rating.controller');
 const {
   getAllRatings,
   getRating,
@@ -10,7 +9,7 @@ const {
   getRatingsByCourse,
   getRatingsByStudent,
   checkRatingExists
-} = ratingController;
+} = require('../controllers/rating.controller');
 
 const { adminMiddleware, studentMiddleware } = require('../middleware/auth.middleware');
 

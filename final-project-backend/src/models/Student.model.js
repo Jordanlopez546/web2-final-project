@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
-const adminSchema = new mongoose.Schema({
+const studentSchema = new mongoose.Schema({
   fullName: {
     type: String,
     required: true,
@@ -10,18 +10,31 @@ const adminSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
+    lowercase: true,
+    trim: true,
+    match: [/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/, 'Please enter a valid email']
   },
   password: {
     type: String,
     required: true,
   },
+  age: {
+    type: Number,
+    required: true,
+  },
   role: {
     type: String,
-    default: 'admin',
-  }
-}, { timestamps: true });
+    default: 'student',
+  },
+  enrolledCourses: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Course',
+  }],
+}, {
+  timestamps: true,
+});
 
-adminSchema.pre('save', async function(next) {
+studentSchema.pre('save', async function(next) {
   if (!this.isModified('password')) return next();
 
   try {
@@ -33,7 +46,7 @@ adminSchema.pre('save', async function(next) {
   }
 })
 
-adminSchema.methods.comparePassword = async function(candidatePassword) {
+studentSchema.methods.comparePassword = async function(candidatePassword) {
   try {
     return await bcrypt.compare(candidatePassword, this.password);
   } catch (error) {
@@ -41,5 +54,5 @@ adminSchema.methods.comparePassword = async function(candidatePassword) {
   }
 }
 
-const Admin = mongoose.model('Admin', adminSchema);
-module.exports = Admin;
+const Student = mongoose.model('Student', studentSchema);
+module.exports = Student;

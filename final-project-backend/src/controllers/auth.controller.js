@@ -1,5 +1,5 @@
-const Student = require("../models/Student");
-const Admin = require("../models/Admin");
+const Student = require("../models/Student.model");
+const Admin = require("../models/Admin.model");
 const jwt = require('jsonwebtoken');
 const { sanitizeStudent } = require("./student.controller");
 const { sanitizeAdmin } = require("./admin.controller");
@@ -37,8 +37,8 @@ const registerStudent = async (req, res) => {
 
     // Create new student
     const newStudent = new Student({
-      fullName: fullName.trim(),
-      email: email.toLowerCase().trim(),
+      fullName,
+      email,
       password,
       age
     });
@@ -100,8 +100,8 @@ const registerAdmin = async (req, res) => {
 
     // Create new admin
     const newAdmin = new Admin({
-      fullName: fullName.trim(),
-      email: email.toLowerCase().trim(),
+      fullName,
+      email,
       password
     });
 

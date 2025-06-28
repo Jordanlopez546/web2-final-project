@@ -1,6 +1,4 @@
 const express = require('express');
-const studentController = require('../controllers/student.controller');
-const { studentMiddleware, adminMiddleware } = require('../middleware/auth.middleware');
 const {
   getProfile,
   getAllStudents,
@@ -10,7 +8,8 @@ const {
   getStudentCourses,
   enrollInCourse,
   unenrollFromCourse,
-} = studentController;
+} = require('../controllers/student.controller');
+const { studentMiddleware, adminMiddleware } = require('../middleware/auth.middleware');
 
 const router = express.Router();
 

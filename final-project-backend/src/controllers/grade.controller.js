@@ -1,6 +1,6 @@
-const Grade = require('../models/Grade');
-const Student = require('../models/Student');
-const Course = require('../models/Course');
+const Grade = require('../models/Grade.model');
+const Student = require('../models/Student.model');
+const Course = require('../models/Course.model');
 
 const sanitizeGrade = (grade) => {
   return {
