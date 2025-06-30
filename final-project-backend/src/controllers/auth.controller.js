@@ -229,7 +229,7 @@ const loginAdmin = async (req, res) => {
       success: true,
       message: 'Login successful',
       data: {
-        student: sanitizeAdmin(admin),
+        admin: sanitizeAdmin(admin),
         token
       }
     });
